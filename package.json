@@ -1,0 +1,87 @@
+{
+  "name": "twitch-bot-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node ace build --production",
+    "start": "node server.js",
+    "dev": "node ace serve --watch",
+    "lint": "eslint . --ext=.ts",
+    "format": "prettier --write ."
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@adonisjs/assembler": "^2.0.0",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "adonis-preset-ts": "^1.0.4",
+    "commitizen": "^4.2.2",
+    "cz-conventional-changelog": "3.2.0",
+    "eslint": "^7.7.0",
+    "eslint-plugin-adonis": "^1.0.14",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.2",
+    "pino-pretty": "^4.1.0",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@adonisjs/ace": "^6.0.0",
+    "@adonisjs/auth": "^4.3.1",
+    "@adonisjs/core": "5.0.0-preview-rc-1.7",
+    "@adonisjs/fold": "^6.0.0",
+    "@adonisjs/lucid": "8.4.1",
+    "@adonisjs/session": "^3.0.8",
+    "adonis-lucid-filter": "^2.0.0-rc8",
+    "luxon": "^1.24.1",
+    "pg": "^8.3.0",
+    "proxy-addr": "^2.0.6",
+    "reflect-metadata": "^0.1.13",
+    "source-map-support": "^0.5.19"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog",
+      "types": {
+        ":sparkles: Feat": {
+          "description": "A new feature",
+          "title": "Features"
+        },
+        ":bug: Fix": {
+          "description": "A bug fix",
+          "title": "Bug fix"
+        },
+        ":hammer: Refactor": {
+          "description": "A code change that neither fixes a bug nor adds a feature ",
+          "title": "Refactor"
+        },
+        ":lipstick: Style": {
+          "description": "Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)",
+          "title": "Style"
+        },
+        ":bulb: Chore": {
+          "description": "Other changes that don't modify src or test files",
+          "title": "Chore"
+        },
+        ":books: Docs": {
+          "description": "Documentation only change",
+          "title": "Documentation"
+        },
+        ":wrench: Config": {
+          "description": "Configuration project",
+          "title": "Configuration"
+        }
+      }
+    }
+  }
+}
