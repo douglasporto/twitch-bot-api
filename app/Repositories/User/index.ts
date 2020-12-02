@@ -11,6 +11,7 @@ export default class UserRepository {
   constructor () {
     this.model = User
   }
+
   public async create (data: DataCreate): Promise<User> {
     return await this.model.create(data)
   }

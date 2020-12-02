@@ -9,6 +9,7 @@ export default class UserValidation {
       ]),
       password: schema.string({}, [
         rules.minLength(3),
+        rules.confirmed(),
       ]),
     })
 
