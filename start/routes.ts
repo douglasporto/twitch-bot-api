@@ -4,5 +4,8 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-Route.post('/user', 'UsersController.create')
-Route.post('/login', 'AuthController.login')
+// USER ROUTES
+Route.group(() => {
+  Route.post('/user', 'UsersController.create')
+  Route.post('/login', 'AuthController.login')
+}).namespace('App/Controllers/Http/User')

@@ -11,10 +11,12 @@ export default class UsersController {
     this.validation = new UserValidation()
     this.repository = new UserRepository()
   }
-  public async create ({ request, response }: HttpContextContract) {
+  public async create ({ request, response, auth }: HttpContextContract) {
     const dataValidated = await this.validation.create(request)
 
     const user = await this.repository.create(dataValidated)
-    return response.status(200).json(user)
+
+    const token = await auth.use('api').attempt(user.email, dataValidated.password)
+    return response.status(200).json({user, token})
   }
 }
