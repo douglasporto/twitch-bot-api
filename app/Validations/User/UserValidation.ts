@@ -17,4 +17,17 @@ export default class UserValidation {
       schema: createValidates,
     })
   }
+
+  public async update (request) {
+    const createValidates = schema.create({
+      password: schema.string({}, [
+        rules.minLength(3),
+        rules.confirmed(),
+      ]),
+    })
+
+    return await request.validate({
+      schema: createValidates,
+    })
+  }
 }
