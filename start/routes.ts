@@ -1,4 +1,5 @@
 import Route from '@ioc:Adonis/Core/Route'
+import Chat from '../service/Chat'
 
 Route.get('/', async () => {
   return { hello: 'world' }
@@ -23,3 +24,7 @@ Route.group(() => {
 })
   .namespace('App/Controllers/Http/Command')
   .middleware('auth')
+
+const chat = new Chat()
+
+chat.watchMessage()

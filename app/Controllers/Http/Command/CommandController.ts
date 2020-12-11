@@ -1,5 +1,4 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Request from '@ioc:Adonis/Core/Request'
 
 import CommandRepository from 'App/Repositories/Command/CommandRepository'
 import CommandValidation from 'App/Validations/Command/CommandValidation'
